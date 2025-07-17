@@ -60,7 +60,8 @@ class M5StackQrScanner{
     return (lengthArr[0] & 0x00ff) | (lengthArr[1] << 8);
   }
   async getDecodeData(length){
-    return await this._read(this.c.UNIT_QRCODE_DATA_REG,length);
+    const strArr = await this._read(this.c.UNIT_QRCODE_DATA_REG,length);
+    return new TextDecoder().decode(strArr);
   }
   async jumpBootloader(){
     await this._write(this.c.JUMP_TO_BOOTLOADER_REG,[1]);
