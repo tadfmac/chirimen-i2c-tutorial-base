@@ -14,6 +14,7 @@ for(;;){
     let data = await qr.getDecodeData(len);
     console.dir(data);
   }
+  await wait(10);
 }
 
 function wait(ms){
