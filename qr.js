@@ -57,7 +57,7 @@ class M5StackQrScanner{
   }
   async getDecodeLength(){
     const lengthArr = await this._read(this.c.UNIT_QRCODE_LENGTH_REG,2);
-    return (lengthArr & 0x00ff) | ((lengthArr >> 8) & 0x00ff);
+    return (lengthArr[0] & 0x00ff) | (lengthArr[1] << 8);
   }
   async getDecodeData(length){
     return await this._read(this.c.UNIT_QRCODE_DATA_REG,length);
