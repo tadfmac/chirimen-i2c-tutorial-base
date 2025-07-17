@@ -31,6 +31,8 @@ class M5StackQrScanner{
     for(let cnt=0;cnt<data.length;cnt++){
       sendData[cnt+2]=data[cnt];
     }
+console.log("@@@@ sendData.length="+sendData.length);
+
   	await this.i2cSlave.writeBytes(sendData);
   }
   async _read(reg16,length){
