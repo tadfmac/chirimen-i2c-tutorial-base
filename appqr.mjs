@@ -8,12 +8,18 @@ const qr = new QR(i2cPort, 0x21);
 await qr.init();
 await qr.setTriggerMode(qr.c.AUTO_SCAN_MODE);
 
-setInterval(async ()=>{
-  if(qr.getDecodeReadyStatus() == 1){
+for(;;){
+  if(await qr.getDecodeReadyStatus() == 1){
     let len = await qr.getDecodeLength();
     let data = await qr.getDecodeData();
     console.dir(data);
   }
-},100);
+}
 
-
+function wait(ms){
+  return new Promise((resolve)=>{
+  	setTimeout(()=>{
+      resolve();
+  	},ms);
+  })
+}
