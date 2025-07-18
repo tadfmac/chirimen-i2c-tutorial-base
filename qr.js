@@ -1,3 +1,4 @@
+// based from : https://github.com/m5stack/M5Unit-QRCode
 
 const constances = {
   UNIT_QRCODE_ADDR:0x21,
