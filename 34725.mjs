@@ -1,4 +1,4 @@
-import {requestI2CAccess, TCS34725} from "TCS34725";
+import {requestI2CAccess, TCS34725} from "chirimen";
 
 const i2cAccess = await requestI2CAccess();
 
