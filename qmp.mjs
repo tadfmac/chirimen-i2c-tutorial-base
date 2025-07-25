@@ -12,7 +12,7 @@ qmp6988 test
 const I2CADDR_QMP6988 = 0x70;
 
 import { requestI2CAccess } from "chirimen";
-import QMP6988 from "./QMP6988";
+import QMP6988 from "./qmp6988.js";
 
 const i2cAccess = await requestI2CAccess();
 
