@@ -68,8 +68,7 @@ class QMP6988{
     try{
       this.i2cSlave = await this.i2cPort.open(this.slaveAddress);
 console.log("init 1");
-//      await this.wait(100);
-//      await this._reset();
+      await this._reset();
 console.log("init 2");
       await this._getCalibrationData();
 console.log("init 3");
@@ -165,11 +164,11 @@ console.log("init 7");
     return Math.floor(wk1);
   }
   async _reset(){
-    await this.i2cSlave.write8(QMP6988_RESET_REG,RESET_START_DATA);
+    await this.i2cSlave.writeBytes([QMP6988_RESET_REG,RESET_START_DATA]);
 console.log("_reset 1");
     await this.wait(20);
 console.log("_reset 2");
-    await this.i2cSlave.write8(QMP6988_RESET_REG,RESET_END_DATA);
+    await this.i2cSlave.writeBytes([QMP6988_RESET_REG,RESET_END_DATA]);
 console.log("_reset 3");
   }
   async setPowerMode(mode){
