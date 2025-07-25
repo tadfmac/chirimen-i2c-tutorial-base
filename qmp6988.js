@@ -71,7 +71,7 @@ console.log("init 1");
 console.log("init 2");
       await this._getCalibrationData();
 console.log("init 3");
-      await this.setpPowermode(this.cPM.QMP6988_NORMAL_MODE);
+      await this.setPowerMode(this.cPM.QMP6988_NORMAL_MODE);
 console.log("init 4");
       await this.setFilter(this.cF.QMP6988_FILTERCOEFF_4);
 console.log("init 5");
