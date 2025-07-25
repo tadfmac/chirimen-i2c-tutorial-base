@@ -66,12 +66,19 @@ class QMP6988{
   async init(){
     try{
       this.i2cSlave = await this.i2cPort.open(this.slaveAddress);
+console.log("init 1");
       await this._reset();
+console.log("init 2");
       await this._getCalibrationData();
+console.log("init 3");
       await this.setpPowermode(this.cPM.QMP6988_NORMAL_MODE);
+console.log("init 4");
       await this.setFilter(this.cF.QMP6988_FILTERCOEFF_4);
+console.log("init 5");
       await this.setOversamplingP(this.cOS.QMP6988_OVERSAMPLING_8X);
+console.log("init 6");
       await this.setOversamplingT(this.cOS.QMP6988_OVERSAMPLING_1X);
+console.log("init 7");
     }catch(e){
       console.error("QMP6988.init() error : "+e);
       return null;
