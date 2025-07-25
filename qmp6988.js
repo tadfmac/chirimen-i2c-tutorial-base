@@ -67,7 +67,7 @@ class QMP6988{
     try{
       this.i2cSlave = await this.i2cPort.open(this.slaveAddress);
 console.log("init 1");
-      await this._reset();
+//      await this._reset();
 console.log("init 2");
       await this._getCalibrationData();
 console.log("init 3");
