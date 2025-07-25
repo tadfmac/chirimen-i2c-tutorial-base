@@ -124,7 +124,7 @@ console.log("init 7");
     const wk1 = this.ik.a1 * data;
     let wk2 = this.ik.a2 * data;
     wk2 = wk2 / Math.pow(2, 14);
-    wk2 = wk2 * dt;
+    wk2 = wk2 * data;
     wk2 = wk2 / Math.pow(2, 10);
     let sum = (wk1 + wk2) / 32767;
     sum = sum / Math.pow(2, 19);
