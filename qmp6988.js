@@ -51,7 +51,6 @@ class QMP6988{
   constructor(i2cPort, addr){
     this.i2cPort = i2cPort;
     this.slaveAddress = addr;
-    this.c = constances;
     this.i2cSlave = null;
     this.calibrationData = null;
     this.ik = null;
