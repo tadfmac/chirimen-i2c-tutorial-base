@@ -164,8 +164,11 @@ console.log("init 7");
   }
   async _reset(){
     await this.i2cSlave.write8(QMP6988_RESET_REG,RESET_START_DATA);
+console.log("_reset 1");
     await this.wait(20);
+console.log("_reset 2");
     await this.i2cSlave.write8(QMP6988_RESET_REG,RESET_END_DATA);
+console.log("_reset 3");
   }
   async setPowerMode(mode){
     this.powerMode = mode;
