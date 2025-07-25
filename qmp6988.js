@@ -172,9 +172,9 @@ console.log("_reset 3");
   }
   async setPowerMode(mode){
     this.powerMode = mode;
-    if((mode == QMP6988_SLEEP_MODE)||
-       (mode == QMP6988_FORCED_MODE)||
-       (mode == QMP6988_NORMAL_MODE)){
+    if((mode == this.cPM.QMP6988_SLEEP_MODE)||
+       (mode == this.cPM.QMP6988_FORCED_MODE)||
+       (mode == this.cPM.QMP6988_NORMAL_MODE)){
       let data = await this.i2cSlave.read8(QMP6988_CTRLMEAS_REG);
       data = data & 0xfc;
       data |= mode;
