@@ -133,7 +133,7 @@ console.log("init 7");
   }
   _getPressure02e(dp, tx) {
     const wk1_bt1 = this.ik.bt1 * tx;
-    let wk2 = ik.bp1 * dp / Math.pow(2, 5);
+    let wk2 = this.ik.bp1 * dp / Math.pow(2, 5);
     let wk1 = wk1_bt1 + wk2;
     wk2 = this.ik.bt2 * tx / Math.pow(2, 1);
     wk2 = wk2 * tx / Math.pow(2, 8);
