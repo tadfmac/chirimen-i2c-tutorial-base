@@ -88,7 +88,7 @@ console.log("init 7");
   async _getCalibrationData(){
     let rd = [];
     for(let cnt=0;cnt<QMP6988_CALIBRATION_DATA_LENGTH;cnt++){
-      readData.push(await this.i2cSlave.read8(QMP6988_CALIBRATION_DATA_START+cnt));
+      rd.push(await this.i2cSlave.read8(QMP6988_CALIBRATION_DATA_START+cnt));
     }
     this.calibrationData = {};
     let raw = (rd[18] << 12)|(rd[19] << 4)|(rd[24] & 0x0f);
