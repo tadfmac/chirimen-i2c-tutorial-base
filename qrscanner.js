@@ -64,10 +64,6 @@ class QRScanner {
     return decoder.decode(Uint8Array.from(data));
   }
 
-  async jumpBootloader(){
-    await this._write(JUMP_TO_BOOTLOADER_REG,[1]);
-  }
-
   wait(ms) {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -80,11 +76,13 @@ class QRScanner {
     for (;;) {
       let status = await this.getDecodeReadyStatus();
 console.dir(status);
-      if ((await this.getDecodeReadyStatus()) == 1) {
+      if (status == 1) {
 console.log("detect");
         const length = await this.getDecodeLength();
         const data = await this.getDecodeData(length);
         return data;
+      }else if(status == 2){
+        throw new Error("ReadyStatus == 2 デバイスを再起動してください。");
       }
       await this.wait(10);
     }
