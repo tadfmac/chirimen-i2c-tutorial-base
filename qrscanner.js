@@ -43,12 +43,13 @@ class QRScanner {
     await this._write(qrscanner_QRCODE_TRIGGER_MODE_REG, [mode]);
   }
   async getTriggerMode() {
-    return await this._read(qrscanner_QRCODE_TRIGGER_MODE_REG, 1)[0];
+    const modeArr = await this._read(qrscanner_QRCODE_TRIGGER_MODE_REG, 1);
+    return modeArr[0];
   }
 
   async getDecodeReadyStatus() {
-    const status = await this._read(qrscanner_QRCODE_READY_REG, 1);
-    return status[0];
+    const statusArr = await this._read(qrscanner_QRCODE_READY_REG, 1);
+    return statusArr[0];
 //    return await this._read(qrscanner_QRCODE_READY_REG, 1)[0];
   }
 

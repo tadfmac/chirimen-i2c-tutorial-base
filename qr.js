@@ -32,17 +32,13 @@ class M5StackQrScanner{
     for(let cnt=0;cnt<data.length;cnt++){
       sendData[cnt+2]=data[cnt];
     }
-console.log("write s")
   	await this.i2cSlave.writeBytes(sendData);
-console.log("write e")
   }
   async _read(reg16,length){
   	let sendData = [];
     sendData[0] = reg16 & 0x00ff;
     sendData[1] = (reg16 >> 8) & 0x00ff;
-console.log("_read s")
     await this.i2cSlave.writeBytes(sendData);
-console.log("_read e")
     return await this.i2cSlave.readBytes(length);
   }
   async setDecodeTrigger(en){
