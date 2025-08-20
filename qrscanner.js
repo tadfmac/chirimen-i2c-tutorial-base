@@ -72,6 +72,7 @@ class QRScanner {
   async scanData() {
     for (;;) {
       if ((await this.getDecodeReadyStatus()) == 1) {
+console.log("detect");
         const length = await this.getDecodeLength();
         const data = await this.getDecodeData(length);
         return data;
