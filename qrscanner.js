@@ -47,7 +47,8 @@ class QRScanner {
   }
 
   async getDecodeReadyStatus() {
-    return await this._read(qrscanner_QRCODE_READY_REG, 1);
+    const status = await this._read(qrscanner_QRCODE_READY_REG, 1);
+    return status;
 //    return await this._read(qrscanner_QRCODE_READY_REG, 1)[0];
   }
 
