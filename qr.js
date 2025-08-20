@@ -48,10 +48,12 @@ class M5StackQrScanner{
     await this._write(this.c.UNIT_QRCODE_TRIGGER_MODE_REG,[mode]);
   }
   async getTriggerMode(){
-    return await this._read(this.c.UNIT_QRCODE_TRIGGER_MODE_REG,1);
+    const modeArr = await this._read(this.c.UNIT_QRCODE_TRIGGER_MODE_REG,1);
+    return modeArr[0];
   }
   async getDecodeReadyStatus(){
-    return await this._read(this.c.UNIT_QRCODE_READY_REG,1);
+    const statusArr = await this._read(this.c.UNIT_QRCODE_READY_REG,1);
+    return statusArr[0];
   }
   async getTriggerKeyStatus(){
     return await this._read(this.c.UNIT_QRCODE_TRIGGER_KEY_REG,1);

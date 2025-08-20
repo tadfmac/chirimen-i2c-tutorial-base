@@ -9,11 +9,14 @@ await qr.init();
 await qr.setTriggerMode(qr.c.AUTO_SCAN_MODE);
 
 for(;;){
-  if(await qr.getDecodeReadyStatus() == 1){
+  let sts = await qr.getDecodeReadyStatus();
+  if(sts == 1){
     let len = await qr.getDecodeLength();
     console.log("scan length="+len);
     let data = await qr.getDecodeData(len);
     console.dir(data);
+  }else{
+console.log(sts);
   }
   await wait(10); // なんかオーバーフローしてそうなので間引く
 }
