@@ -64,6 +64,10 @@ class QRScanner {
     return decoder.decode(Uint8Array.from(data));
   }
 
+  async jumpBootloader(){
+    await this._write(JUMP_TO_BOOTLOADER_REG,[1]);
+  }
+
   wait(ms) {
     return new Promise((resolve) => {
       setTimeout(() => {
